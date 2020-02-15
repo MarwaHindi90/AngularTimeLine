@@ -1,0 +1,13 @@
+[0126/150236.680:ERROR:process_info.cc(359)] UncheckedAllocate
+[0126/150326.123:ERROR:process_info.cc(359)] UncheckedAllocate
+[0126/162121.570:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/163702.117:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/163913.507:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/183020.867:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/183020.959:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/192221.596:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\Rami\AppData\Local\Google\Chrome\User Data\Crashpad\reports\07ef9049-abf4-4e66-80c5-287831a02b1b.dmp: The process cannot access the file because it is being used by another process. (0x20)
+[0129/230501.465:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/230507.342:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/230606.798:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/230612.987:ERROR:process_info.cc(359)] UncheckedAllocate
+[0129/230617.514:ERROR:process_info.cc(359)] UncheckedAllocate

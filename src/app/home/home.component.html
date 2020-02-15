@@ -1,0 +1,267 @@
+<section class="container">
+    <div class="row">
+        <!--========================== Start Right Side Bar ================================-->
+        <div class="col-md-3 d-none d-lg-block">
+
+            <!----------------- First Card ----------------->
+
+            <div class="card position-relative mb-3">
+                <img class="card-img-top" src="assets/images/banner-small.jpg" alt="Card image cap">
+
+                <div class="card-body text-center">
+                    <img class="imgThm text-center rounded-circle" src="assets/images/profile-midle-1.jpg" alt="Card image cap">
+
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+
+            <!---------------- Second Card ------------------>
+
+            <div class="card p-2 text-center mb-3">
+                <h5 class="underLine position-relative mt-3">Page You May Like </h5>
+                <div class="card-body d-flex mt-4">
+                    <div>
+                        <div class="pix w-75 mr-1">
+                            <img src="assets/images/profile-small-28.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="text-left travel">Travel The World Adventure
+                        </h6>
+                    </div>
+                    <div class="heart  ">
+                        <i class="fas fa-heart   "></i>
+                    </div>
+                </div>
+
+                <div class="card-body d-flex ">
+                    <div>
+                        <div class="pix w-75 mr-1">
+                            <img src="assets/images/profile-small-32.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="text-left travel">Travel The World Adventure
+                        </h6>
+                    </div>
+                    <div class="heart  ">
+                        <i class="fas fa-heart   "></i>
+                    </div>
+                </div>
+
+                <div class="card-body d-flex">
+                    <div>
+                        <div class="pix w-75 mr-1">
+                            <img src="assets/images/profile-small-27.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="text-left travel">Travel The World Adventure
+                        </h6>
+                    </div>
+                    <div class="heart ">
+                        <i class="fas fa-heart   "></i>
+                    </div>
+                </div>
+            </div>
+
+            <!---------------- Third Card --------------------->
+
+            <div class="card p-2 ">
+                <h5 class="underLine2 text-center position-relative mt-3">Latest Top News </h5>
+                <div class="card-body d-flex mt-4">
+                    <div>
+                        <div class="pix  mr-2">
+                            <img src="assets/images/profile-small-28.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+                <div class="card-body d-flex ">
+                    <div>
+                        <div class="pix  mr-2">
+                            <img src="assets/images/profile-small-32.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold ">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+                <div class="card-body d-flex">
+                    <div>
+                        <div class="pix mr-2">
+                            <img src="assets/images/profile-small-27.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--========================== End Right Side Bar ================================-->
+
+        <!--========================== Start Center Section ================================-->
+        <!--Start Header -->
+        <div class="col-md-6">
+            <div class=" media shadow d-flex align-items-center justify-content-center px-3 py-4 mb-4 position-relative">
+                <img class="img-fluid immg rounded-circle mr-2" src="assets/images/profile-small-27.jpg">
+                <div class="forrm media-body">
+                    <input type="text" class="form-control w-100" placeholder="say somthing...">
+                    <div class="btun">
+                        <button class="btn btn-danger">Post</button>
+                    </div>
+                </div>
+            </div>
+            <!--End Header -->
+
+            <div *ngFor="let user of users ; let i = index ;let l=last" class="card Postss shadow  mb-3">
+                <div class="card-body p-3" *ngIf="photos[i] != undefined && Posts[i] != undefined && users[i] != undefined">
+                    <a [routerLink]="['/post', Posts[i].id]">
+                        <div class="d-flex align-items-center">
+                            <img [src]="photos[i].thumbnailUrl" class="rounded-circle img-thm">
+
+                            <div class="info">
+                                <h5>{{users[i].name}}</h5>
+                                <h6>User ID: {{users[i].id}}</h6>
+                                <small class="text-muted">Last update 3month ago</small>
+                            </div>
+                        </div>
+
+                        <div class="info_post pt-3">
+                            <p>{{Posts[i].body}}</p>
+                            <img [src]="photos[i].url" class="img-fluid rounded">
+                        </div>
+                    </a>
+                    <div class="info-comment clearfix my-2 p-2">
+                        <div class="container">
+                            <div class="float-left ">
+                                <i class="fas fa-heart  mr-1" [class.colord_icon]="likePost" (click)="like()"></i>
+                                <span class="d-none" [class.display]="likePost">You and </span>
+                                <span>206 people like this</span>
+                            </div>
+                            <div class="float-right">
+                                {{comments.length}}
+                                <i class="fas fa-comment-alt   px-1 "></i> 12
+                                <i class="fas fa-share-alt    "></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        
+        <!--========================== End Center Section ================================ -->
+
+        <!--========================== Start Left Side Bar ================================-->
+        <div class="col-md-3">
+            <div class="card p-2 ">
+                <h5 class="underLine text-center position-relative mt-3">Recent Notifications
+                </h5>
+                <div class="card-body d-flex mt-4">
+                    <div>
+                        <div class="pix  mr-2">
+                            <img src="assets/images/profile-small-27.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+                <div class="card-body d-flex ">
+                    <div>
+                        <div class="pix  mr-2">
+                            <img src="assets/images/profile-small-32.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold ">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+                <div class="card-body d-flex">
+                    <div>
+                        <div class="pix mr-2">
+                            <img src="assets/images/profile-small-28.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+                <div class="card-body d-flex">
+                    <div>
+                        <div class="pix mr-2">
+                            <img src="assets/images/profile-small-27.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+                <div class="card-body d-flex">
+                    <div>
+                        <div class="pix mr-2">
+                            <img src="assets/images/profile-small-28.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+                <div class="card-body d-flex">
+                    <div>
+                        <div class="pix mr-2">
+                            <img src="assets/images/profile-small-32.jpg" class="immg img-fluid rounded-circle">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h6 class="lastp text-left font-weight-bold">Any one can join with us if you want
+                        </h6>
+                        <small class="text-muted">20 Min Ago</small>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+        <!--========================== End Left Side Bar ================================-->
+    </div>
+</section>

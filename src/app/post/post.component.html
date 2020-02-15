@@ -1,0 +1,45 @@
+<section class="container my-2">
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-6">
+            <div *ngIf="photos != undefined && post != undefined && user != undefined" class="card Postss shadow  mb-3 d-flex">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                        <img [src]="photos.thumbnailUrl" class="rounded-circle img-fluid img-thm">
+                        <div class="info">
+                            <h5>{{user.name}}</h5>
+                            <h6>User ID: {{user.id}}</h6>
+                            <span>Last update 3month ago</span>
+                        </div>
+                    </div>
+
+                    <div class="info_post mt-4">
+                        <p>{{post.body}}</p>
+                        <img [src]="photos.url" class="img-fluid rounded my-2">
+                    </div>
+
+                    <div class="info-comment clearfix my-2 p-2">
+                        <div class="container">
+                            <div class="float-left ">
+                                <i class="fas fa-heart  mr-1" [class.colord_icon]="likePostt" (click)="likePost()"></i>
+                                <span class="d-none" [class.display]="likePostt">You and </span>
+                                <span>206 people like this</span>
+                            </div>
+                            <div class="float-right">
+                                {{commentsOfPost.length}}
+                                <i class="fas fa-comment-alt   px-1 " (click)="displayComment()"></i> 12
+                                <i class="fas fa-share-alt    "></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div *ngFor="let comment of commentsOfPost" class="card-footer d-none" [class.display]="display">
+                    <p>{{comment}}</p>
+                    <i (click)="like()" class="far fa-thumbs-up" [class.colord_icon]="likeComment"></i>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
